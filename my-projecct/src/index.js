@@ -1,5 +1,9 @@
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom/client';
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
+import Content from './Content/Content';
+import Banner from './Banner/Banner';
 // // import './index.css';
 // // import App from './App';
 // // import reportWebVitals from './reportWebVitals';
@@ -17,19 +21,32 @@ import ReactDOM from 'react-dom/client';
 // reportWebVitals();
 
 // const head=createElement("div","h1" , {} , "React js");
-const head1= createElement('div', {}, createElement('h1', {}, 'first head'), createElement('h1', {}, 'second head'));
-const name="siva";
-const arr=['aaa', 'bbb', 'ccc'];
-const head=<div className='sample' style={{backgroundColor:'yellow'}}>
-  <h1>head1</h1>
-  <h2>head2</h2>
-  {8 + 10}
-  {true? "true":'false'}
-  {name}
-  {arr.map((val, index) => <p key={index}>{val}</p>)}
-  {head1}
-</div>
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(head);
+// const head1= createElement('div', {}, createElement('h1', {}, 'first head'), createElement('h1', {}, 'second head'));
+// const name="siva";
+// const arr=['aaa', 'bbb', 'ccc'];
+// const head=<div className='sample' style={{backgroundColor:'yellow'}}>
+//   <h1>head1</h1>
+//   <h2>head2</h2>
+//   {8 + 10}
+//   {true? "true":'false'}
+//   {name}
+//   {arr.map((val, index) => <p key={index}>{val}</p>)}
+//   {head1}
+// </div>
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(head);
 
 // document.getElementById("root").innerHTML="react js";
+
+function Main(){
+  return (
+    <div>
+      <Header />
+      <Banner />
+      <Content />
+      <Footer />
+    </div>
+  )
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Main />);
