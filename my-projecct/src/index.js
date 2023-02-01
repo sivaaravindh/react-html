@@ -1,4 +1,4 @@
-import React, { createElement } from 'react';
+import React, { createElement, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
@@ -37,12 +37,25 @@ import Banner from './Banner/Banner';
 // root.render(head);
 
 // document.getElementById("root").innerHTML="react js";
-
 function Main(){
-  return (
-    <div>
-      <Header />
-      <Banner />
+  const [feature, setFeature] = useState ('Hooks')
+  const [feature1, setFeature1] = useState ('')
+  const data={
+    name:'siva',
+  }
+  const getData = () =>{
+    console.log("called");
+  }
+    return (
+      <div>
+        {feature}<br></br>
+        {feature1}
+        <button onClick={()=>{
+          setFeature('updated hooks');
+          setFeature1('updated js')}
+        }>update feature</button>
+        <Header name={data.name} feature={feature} get={getData}/>
+      <Banner name={data.name}/>
       <Content />
       <Footer />
     </div>
