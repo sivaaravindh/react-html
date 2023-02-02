@@ -1,9 +1,10 @@
-import React, { createElement, useState } from 'react';
+import React, { Component ,createElement, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import Header from './Header/Header';
-import Footer from './Footer/Footer';
-import Content from './Content/Content';
-import Banner from './Banner/Banner';
+import Header from './HeaderClass/Header';
+// import Header from './Header/Header';
+// import Footer from './Footer/Footer';
+// import Content from './Content/Content';
+// import Banner from './Banner/Banner';
 // // import './index.css';
 // // import App from './App';
 // // import reportWebVitals from './reportWebVitals';
@@ -37,29 +38,87 @@ import Banner from './Banner/Banner';
 // root.render(head);
 
 // document.getElementById("root").innerHTML="react js";
-function Main(){
-  const [feature, setFeature] = useState ('Hooks')
-  const [feature1, setFeature1] = useState ('')
-  const data={
-    name:'siva',
+// function Main(){
+//   const [feature, setFeature] = useState ('Hooks')
+//   const [feature1, setFeature1] = useState ('')
+//   const data={
+//     name:'siva',
+//   }
+//   const getData = () =>{
+//     console.log("called");
+//   }
+//     return (
+//       <div>
+//         {feature}<br></br>
+//         {feature1}
+//         <button onClick={()=>{
+//           setFeature('updated hooks');
+//           setFeature1('updated js')}
+//         }>update feature</button>
+//         <Header name={data.name} feature={feature} get={getData}/>
+//       <Banner name={data.name}/>
+//       <Content />
+//       <Footer />
+//     </div>
+//   )
+// }
+class Third extends Component {
+  render () {
+    return <div> third Class Component</div>
   }
-  const getData = () =>{
-    console.log("called");
+}
+
+class Secound extends Component {
+  render () {
+    return <div>Secound Class Component</div>
   }
+}
+
+
+class Frist extends Component {
+  render () {
+    console.log("this",this); 
+    return(
+     <div>
+      {" "}
+      First Class Component {this. props.data } {""}
+      <button onClick={()=> this.props.get ("Data")}>Click</button>
+      </div>
+    )
+  }
+}
+
+class Main extends Component {
+  constructor() {
+    super();
+    this.state= {
+      name:"siva",
+      age:34,
+      feature:"state"
+    };
+    console.log(this);
+  }
+  getData() {
+    console.log("data");
+  }
+  updateName() {
+    this.setState({name:"React State"});
+  }
+  render () {
     return (
       <div>
-        {feature}<br></br>
-        {feature1}
-        <button onClick={()=>{
-          setFeature('updated hooks');
-          setFeature1('updated js')}
-        }>update feature</button>
-        <Header name={data.name} feature={feature} get={getData}/>
-      <Banner name={data.name}/>
-      <Content />
-      <Footer />
-    </div>
-  )
+        {this.state.name}
+        {this.state.age}
+        <button onClick={() => this.updateName()}>Update Name</button>
+        <button onClick={this.updateName.bind(this)}>Update Name</button>
+        Class Component
+        <Frist data="React Class"  get={this.getData}/>
+        <Secound />
+        <Third />
+        <Header />
+      </div>
+    )
+  }
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Main />);
