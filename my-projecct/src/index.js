@@ -62,63 +62,72 @@ import Header from './HeaderClass/Header';
 //     </div>
 //   )
 // }
-class Third extends Component {
-  render () {
-    return <div> third Class Component</div>
-  }
-}
+// class Third extends Component {
+//   render () {
+//     return <div> third Class Component</div>
+//   }
+// }
 
-class Secound extends Component {
-  render () {
-    return <div>Secound Class Component</div>
-  }
-}
+// class Secound extends Component {
+//   render () {
+//     return <div>Secound Class Component</div>
+//   }
+// }
 
 
-class Frist extends Component {
-  render () {
-    console.log("this",this); 
-    return(
-     <div>
-      {" "}
-      First Class Component {this. props.data } {""}
-      <button onClick={()=> this.props.get ("Data")}>Click</button>
-      </div>
-    )
-  }
-}
+// class Frist extends Component {
+//   render () {
+//     console.log("this",this); 
+//     return(
+//      <div>
+//       {" "}
+//       First Class Component {this. props.data } {""}
+//       <button onClick={()=> this.props.get ("Data")}>Click</button>
+//       </div>
+//     )
+//   }
+// }
 
+// class Main extends Component {
+//   constructor() {
+//     super();
+//     this.state= {
+//       name:"siva",
+//       age:19,
+//       feature:"state"
+//     };
+//     console.log(this);
+//   }
+//   getData() {
+//     console.log("data");
+//   }
+//   updateName() {
+//     this.setState({name:"React State by siva"});
+//   }
+//   render () {
+//     return (
+//       <div>
+//         {this.state.name}
+//         {this.state.age}
+//         <button onClick={() => this.updateName()}>Update Name</button>
+//         <button onClick={this.updateName.bind(this)}>Update Name</button>
+//         Class Component
+//         <Frist data="React Class"  get={this.getData}/>
+//         <Secound />
+//         <Third />
+//         <Header />
+//       </div>
+//     )
+//   }
+// }
 class Main extends Component {
-  constructor() {
-    super();
-    this.state= {
-      name:"siva",
-      age:34,
-      feature:"state"
-    };
-    console.log(this);
-  }
-  getData() {
-    console.log("data");
-  }
-  updateName() {
-    this.setState({name:"React State"});
-  }
   render () {
-    return (
-      <div>
-        {this.state.name}
-        {this.state.age}
-        <button onClick={() => this.updateName()}>Update Name</button>
-        <button onClick={this.updateName.bind(this)}>Update Name</button>
-        Class Component
-        <Frist data="React Class"  get={this.getData}/>
-        <Secound />
-        <Third />
-        <Header />
+        return (
+          <div>
+             <Header />
       </div>
-    )
-  }
+     )
+   }
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Main />);
